@@ -15,7 +15,7 @@
 
     <!-- Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
@@ -25,288 +25,461 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #34495e;
-            --text-light: #7f8c8d;
-            --border-radius: 8px;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            /* Palette: Premium Slate & Teal */
+            --primary: #0f172a;
+            /* Deep Slate Blue */
+            --primary-light: #1e293b;
+            /* Lighter Slate */
+            --secondary: #14b8a6;
+            /* Vibrant Teal */
+            --secondary-dark: #0d9488;
+            --accent: #f59e0b;
+            /* Gold for subtle highlights */
+
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+
+            --border-radius: 12px;
+            --radius-sm: 6px;
+
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
+            font-family: var(--font-body);
+            color: var(--text-main);
             line-height: 1.6;
-            background-color: #f9f9f9;
+            background-color: var(--bg-body);
+            margin: 0;
+            font-size: 15px;
         }
 
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* Layout */
         .wrapper {
             display: flex;
-            max-width: 1200px;
-            margin: 2rem auto;
-            box-shadow: var(--box-shadow);
+            max-width: 1100px;
+            margin: 3rem auto;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-lg);
             border-radius: var(--border-radius);
             overflow: hidden;
+            min-height: 800px;
         }
 
+        /* Sidebar Styling */
         .sidebar-wrapper {
-            width: 35%;
-            background: var(--primary-color);
+            width: 320px;
+            flex-shrink: 0;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
-            padding: 2rem;
-            position: relative;
+            padding: 2.5rem 2rem;
+            text-align: left;
         }
 
         .profile-container {
             text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
         }
 
         .profile {
-            width: 210px;
-            height: 210px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             margin-bottom: 1.5rem;
             transition: var(--transition);
         }
 
         .profile:hover {
-            transform: scale(1.05);
-            border-color: var(--secondary-color);
+            transform: scale(1.02);
+            border-color: var(--secondary);
         }
 
         .name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: white;
+            color: #ffffff;
+            letter-spacing: -0.5px;
         }
 
         .tagline {
             font-size: 1rem;
             font-weight: 400;
-            color: var(--light-color);
-            margin-bottom: 0;
-        }
-
-        .container-block {
-            margin-bottom: 2rem;
-        }
-
-        .container-block-title {
-            text-transform: uppercase;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--secondary-color);
+            color: var(--secondary);
             margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
-        .container-block-title:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--secondary-color);
-        }
-
-        .contact-list li {
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-list i {
-            margin-right: 0.75rem;
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            width: 20px;
-            text-align: center;
-        }
-
-        .contact-list a {
-            color: var(--light-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-list a:hover {
-            color: var(--secondary-color);
-        }
-
-        .degree {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: white;
-        }
-
-        .meta {
+        .location-badge {
             font-size: 0.9rem;
-            color: var(--light-color);
-            margin-bottom: 0.25rem;
-        }
-
-        .time {
-            font-size: 0.85rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .achievement {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 0.5rem;
-        }
-
-        .skills-list li {
-            margin-bottom: 0.5rem;
-            color: var(--light-color);
-        }
-
-        .skills-list strong {
-            color: white;
-        }
-
-        .interests-list li {
-            display: flex;
+            color: var(--text-light);
+            display: inline-flex;
             align-items: center;
-            margin-bottom: 0.75rem;
-            color: var(--light-color);
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
         }
 
-        .interests-list i {
-            margin-right: 0.75rem;
-            color: var(--secondary-color);
-            width: 20px;
-            text-align: center;
-        }
-
-        .main-wrapper {
-            width: 65%;
-            background: white;
-            padding: 2.5rem;
-        }
-
-        .section {
+        /* Sidebar Blocks */
+        .container-block {
             margin-bottom: 2.5rem;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: flex;
-            align-items: center;
+        .container-block-title {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
         }
 
-        .section-title .icon-holder {
-            width: 40px;
-            height: 40px;
-            background: var(--secondary-color);
+        /* Contact List */
+        .contact-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .contact-list i {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            color: white;
+            margin-right: 10px;
+            color: var(--secondary);
+            font-size: 0.85rem;
         }
 
-        .summary {
+        .contact-list a:hover {
+            color: var(--secondary);
+        }
+
+        /* Skills Pills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skills-list li {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 5px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skills-list strong {
+            display: block;
+            width: 100%;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 5px 0 2px 0;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .skills-list li.category {
+            background: transparent;
+            border: none;
+            padding-left: 0;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* Education */
+        .education-container .item {
+            margin-bottom: 1.5rem;
+        }
+
+        .degree {
             font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .education-container .meta {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .education-container .time {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .education-container .achievement {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-wrapper {
+            flex: 1;
+            padding: 3.5rem;
+            background: #fff;
+        }
+
+        .section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .section-title .icon-holder {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Summary */
+        .summary p {
+            font-size: 1.05rem;
+            color: var(--text-main);
             line-height: 1.8;
         }
 
-        .item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #eee;
+        /* Experience Timeline */
+        .experiences-section .item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 2px solid #e2e8f0;
         }
 
-        .item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .experiences-section .item:last-child {
+            border-left-color: transparent;
+        }
+
+        .experiences-section .item:before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--secondary);
         }
 
         .upper-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
         }
 
         .job-title {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .company {
-            font-style: italic;
-            color: var(--secondary-color);
+            color: var(--secondary-dark);
+            font-weight: 500;
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
         }
 
+        .item .time {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: #f8fafc;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .details p {
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
         .details ul {
-            padding-left: 1.25rem;
+            padding-left: 0;
+            margin-bottom: 1rem;
         }
 
         .details li {
-            margin-bottom: 0.5rem;
             position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
         }
 
         .details li:before {
-            content: "▹";
+            content: "•";
             position: absolute;
-            left: -1.25rem;
-            color: var(--secondary-color);
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
         }
 
+        /* Tech Stack Tags */
         .technologies {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.85rem;
-            background: #f5f5f5;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-top: 1rem;
-            display: inline-block;
-            color: var(--text-light);
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
+        .tech-tag {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Projects Grid */
+        .projects-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--secondary);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-role {
+            font-size: 0.85rem;
+            color: var(--secondary-dark);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
             .wrapper {
                 flex-direction: column;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
             }
 
-            .sidebar-wrapper,
-            .main-wrapper {
+            .sidebar-wrapper {
                 width: 100%;
+                padding: 3rem 2rem;
+                text-align: center;
             }
-        }
 
-        @media (max-width: 768px) {
+            .sidebar-wrapper .text-left {
+                text-align: left;
+            }
+
+            /* Utility for blocks */
+            .contact-list,
+            .skills-list {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .main-wrapper {
+                padding: 2rem;
+            }
+
             .upper-row {
                 flex-direction: column;
             }
 
-            .time {
+            .item .time {
+                display: inline-block;
                 margin-top: 0.25rem;
             }
         }
@@ -353,11 +526,21 @@
             <div class="skills-container container-block">
                 <h2 class="container-block-title">Technical Skills</h2>
                 <ul class="list-unstyled skills-list">
-                    <li><strong>Languages:</strong> Java, SQL</li>
-                    <li><strong>Frameworks:</strong> Spring Boot, Spring Cloud</li>
-                    <li><strong>Databases:</strong> MySQL</li>
-                    <li><strong>Tools:</strong>Kafka, Docker, Git, JIRA</li>
-                    <li><strong>Concepts:</strong> Microservices, API Design, Security</li>
+                    <li class="category"><strong>Languages</strong></li>
+                    <li>Java 17/21</li>
+                    <li>SQL (MySQL, Postgres)</li>
+
+                    <li class="category"><strong>Frameworks</strong></li>
+                    <li>Spring Boot 3</li>
+                    <li>Spring Cloud</li>
+                    <li>Hibernate/JPA</li>
+                    <li>Spring Security</li>
+
+                    <li class="category"><strong>Infrastructure</strong></li>
+                    <li>Docker</li>
+                    <li>Kafka</li>
+                    <li>Kubernetes</li>
+                    <li>CI/CD (GitLab/Jenkins)</li>
                 </ul>
             </div><!--//skills-->
 
@@ -402,7 +585,12 @@
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
-                            <h3 class="job-title">Senior Java Developer</h3>
+                            <h3 class="job-title">
+                                Senior Java Developer
+                                <span style="color:var(--text-light); font-weight:300; margin: 0 4px;">|</span>
+                                <span>Product Technical
+                                    Lead</span>
+                            </h3>
                             <div class="time">2021 - Present</div>
                         </div><!--//upper-row-->
                         <div class="company">foo.mobi (Beirut, Remote)</div>
@@ -419,8 +607,16 @@
                             <li>Optimized transaction processing latency by 40% through performance tuning</li>
                             <li>Mentored 5 junior developers in backend best practices</li>
                         </ul>
-                        <div class="technologies">Technologies: Java 8,11,17,21, Spring Boot, Spring Security, MySQL,
-                            Docker, OAuth2, Kafka, Microservices</div>
+                        <div class="technologies">
+                            <span class="tech-tag">Java 21</span>
+                            <span class="tech-tag">Spring Boot 3</span>
+                            <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">OAuth2</span>
+                        </div>
                     </div><!--//details-->
                 </div><!--//item-->
 
@@ -440,7 +636,12 @@
                             <li>Automated document processing reducing manual work by 60%</li>
                             <li>Implemented reporting dashboard for business analytics</li>
                         </ul>
-                        <div class="technologies">Technologies: Java, Spring Boot, MySQL</div>
+                        <div class="technologies">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Monolith</span>
+                        </div>
                     </div><!--//details-->
                 </div><!--//item-->
 
@@ -458,7 +659,11 @@
                             <li>Implemented role-based access control for sensitive data</li>
                             <li>Designed audit trail for compliance requirements</li>
                         </ul>
-                        <div class="technologies">Technologies: C#, .NET, SQL Server</div>
+                        <div class="technologies">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">.NET</span>
+                            <span class="tech-tag">SQL Server</span>
+                        </div>
                     </div><!--//details-->
                 </div><!--//item-->
 
@@ -481,48 +686,77 @@
                 </div><!--//item-->
 
             </section><!--//section-->
-            <!--             
             <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-project-diagram"></i></span>Key Projects</h2>
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Digital Wallet Platform</h3>
-                            <div class="time">2022</div>
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-code-branch"></i></span>Key
+                    Projects</h2>
+
+                <div class="projects-wrapper">
+                    <div class="project-card">
+                        <h3 class="project-title">Digital Channel Platform</h3>
+                        <span class="project-role">Lead Architect</span>
+                        <div class="details">
+                            <p>Developed a secure digital channel platform for banks and financial institutions.</p>
+                            <ul>
+                                <li>Designed API contracts tailored to frontend requirements</li>
+                                <li>Supported multiple dynamic implementations for channel data retrieval</li>
+                                <li>Integrated with diverse clients and data sources</li>
+                            </ul>
                         </div>
-                        <div class="company">foo.mobi</div>
                     </div>
-                    <div class="details">
-                        <p>Led development of wallet system supporting peer-to-peer transfers, bill payments, and merchant transactions. Implemented:</p>
-                        <ul>
-                            <li>Idempotent transaction processing</li>
-                            <li>Fraud detection mechanisms</li>
-                            <li>Reconciliation system</li>
-                            <li>Admin monitoring dashboard</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Virtual Card Network</h3>
-                            <div class="time">2021</div>
+                    <div class="project-card">
+                        <h3 class="project-title">Digital Wallet Platform (SVA)</h3>
+                        <span class="project-role">Lead Architect & Senior Developer</span>
+                        <div class="details">
+                            <p>Developed a secure wallet system (Stored Value Account) supporting multiple currencies
+                                and operations (P2P, topup, cashout ...).</p>
+                            <ul>
+                                <li>Implemented idempotent transaction processing engine</li>
+                                <li>Integrated real-time fraud detection</li>
+                                <li>Built automated reconciliation system</li>
+                            </ul>
                         </div>
-                        <div class="company">foo.mobi</div>
                     </div>
-                    <div class="details">
-                        <p>Designed card management system for issuing and processing virtual payment cards:</p>
-                        <ul>
-                            <li>Card tokenization for security</li>
-                            <li>BIN sponsorship integration</li>
-                            <li>Spend controls and limits</li>
-                            <li>Webhook notifications</li>
-                        </ul>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Virtual Card Network (VCN)</h3>
+                        <span class="project-role">Senior Developer</span>
+                        <div class="details">
+                            <p>Designed card issuance system for virtual payment cards.</p>
+                            <ul>
+                                <li>End-to-end card tokenization security</li>
+                                <li>Complex spend control logic</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Payment Platform (Card On File)</h3>
+                        <span class="project-role">Product Technical Lead & Senior Developer</span>
+                        <div class="details">
+                            <p>Designed Card-on-File system for secure stored-card payments.</p>
+                            <ul>
+                                <li>Securely stored card details in compliance with PCI DSS</li>
+                                <li>End-to-end card tokenization security</li>
+                                <li>Implemented hosted checkout solution</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Security Vault (Soft HSM)</h3>
+                        <span class="project-role">Product Technical Lead & Senior Engineer</span>
+                        <div class="details">
+                            <p>Built a secure key management/operations service for banking secrets.</p>
+                            <ul>
+                                <li>Implemented custom Java Security Provider integration</li>
+                                <li>AES-256 encryption at rest</li>
+                                <li>Key rotation policies</li>
+                                <li>Audit logging for compliance</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
-            -->
 
             <section class="section achievements-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Key Achievements
