@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Mohammad Nosairat | Senior Backend Engineer</title>
-    
+
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Senior Backend Engineer with 5+ years experience in Java, Spring, and financial systems">
-    <meta name="author" content="Mohammad Nosairat">    
+    <meta name="description"
+        content="Senior Backend Engineer with 5+ years experience in Java, Spring, and financial systems">
+    <meta name="author" content="Mohammad Nosairat">
     <link rel="shortcut icon" href="favicon.ico">
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <script defer src="https://kit.fontawesome.com/8e0b10a6a5.js" crossorigin="anonymous"></script>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <style>
@@ -29,17 +33,17 @@
             --text-color: #34495e;
             --text-light: #7f8c8d;
             --border-radius: 8px;
-            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-color);
             line-height: 1.6;
             background-color: #f9f9f9;
         }
-        
+
         .wrapper {
             display: flex;
             max-width: 1200px;
@@ -48,7 +52,7 @@
             border-radius: var(--border-radius);
             overflow: hidden;
         }
-        
+
         .sidebar-wrapper {
             width: 35%;
             background: var(--primary-color);
@@ -56,47 +60,47 @@
             padding: 2rem;
             position: relative;
         }
-        
+
         .profile-container {
             text-align: center;
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .profile {
-            width: 150px;
-            height: 150px;
+            width: 210px;
+            height: 210px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid rgba(255,255,255,0.2);
+            border: 5px solid rgba(255, 255, 255, 0.2);
             margin-bottom: 1.5rem;
             transition: var(--transition);
         }
-        
+
         .profile:hover {
             transform: scale(1.05);
             border-color: var(--secondary-color);
         }
-        
+
         .name {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: white;
         }
-        
+
         .tagline {
             font-size: 1rem;
             font-weight: 400;
             color: var(--light-color);
             margin-bottom: 0;
         }
-        
+
         .container-block {
             margin-bottom: 2rem;
         }
-        
+
         .container-block-title {
             text-transform: uppercase;
             font-size: 1rem;
@@ -107,7 +111,7 @@
             position: relative;
             padding-bottom: 0.5rem;
         }
-        
+
         .container-block-title:after {
             content: '';
             position: absolute;
@@ -117,13 +121,13 @@
             height: 2px;
             background: var(--secondary-color);
         }
-        
+
         .contact-list li {
             margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
         }
-        
+
         .contact-list i {
             margin-right: 0.75rem;
             font-size: 1.1rem;
@@ -131,75 +135,75 @@
             width: 20px;
             text-align: center;
         }
-        
+
         .contact-list a {
             color: var(--light-color);
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .contact-list a:hover {
             color: var(--secondary-color);
         }
-        
+
         .degree {
             font-weight: 600;
             margin-bottom: 0.25rem;
             color: white;
         }
-        
+
         .meta {
             font-size: 0.9rem;
             color: var(--light-color);
             margin-bottom: 0.25rem;
         }
-        
+
         .time {
             font-size: 0.85rem;
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
             display: block;
         }
-        
+
         .achievement {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 0.5rem;
         }
-        
+
         .skills-list li {
             margin-bottom: 0.5rem;
             color: var(--light-color);
         }
-        
+
         .skills-list strong {
             color: white;
         }
-        
+
         .interests-list li {
             display: flex;
             align-items: center;
             margin-bottom: 0.75rem;
             color: var(--light-color);
         }
-        
+
         .interests-list i {
             margin-right: 0.75rem;
             color: var(--secondary-color);
             width: 20px;
             text-align: center;
         }
-        
+
         .main-wrapper {
             width: 65%;
             background: white;
             padding: 2.5rem;
         }
-        
+
         .section {
             margin-bottom: 2.5rem;
         }
-        
+
         .section-title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -209,7 +213,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .section-title .icon-holder {
             width: 40px;
             height: 40px;
@@ -221,59 +225,59 @@
             margin-right: 1rem;
             color: white;
         }
-        
+
         .summary {
             font-size: 1rem;
             line-height: 1.8;
         }
-        
+
         .item {
             margin-bottom: 2rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid #eee;
         }
-        
+
         .item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
+
         .upper-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
         }
-        
+
         .job-title {
             font-weight: 600;
             color: var(--primary-color);
             font-size: 1.1rem;
         }
-        
+
         .company {
             font-style: italic;
             color: var(--secondary-color);
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
         }
-        
+
         .details ul {
             padding-left: 1.25rem;
         }
-        
+
         .details li {
             margin-bottom: 0.5rem;
             position: relative;
         }
-        
+
         .details li:before {
             content: "▹";
             position: absolute;
             left: -1.25rem;
             color: var(--secondary-color);
         }
-        
+
         .technologies {
             font-family: 'Roboto Mono', monospace;
             font-size: 0.85rem;
@@ -284,23 +288,24 @@
             display: inline-block;
             color: var(--text-light);
         }
-        
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .wrapper {
                 flex-direction: column;
             }
-            
-            .sidebar-wrapper, .main-wrapper {
+
+            .sidebar-wrapper,
+            .main-wrapper {
                 width: 100%;
             }
         }
-        
+
         @media (max-width: 768px) {
             .upper-row {
                 flex-direction: column;
             }
-            
+
             .time {
                 margin-top: 0.25rem;
             }
@@ -312,35 +317,39 @@
     <div class="wrapper">
         <div class="sidebar-wrapper">
             <div class="profile-container">
-                <img class="profile" src="assets/images/profile.png" alt="Mohammad Nosairat Profile Photo">
+                <img class="profile" src="assets/images/profile.jpg" alt="Mohammad Nosairat Profile Photo">
                 <h1 class="name">Mohammad Nosairat</h1>
                 <h3 class="tagline">Senior Backend Engineer<br>Financial Systems Specialist</h3>
-                 <div class="location-badge">
+                <div class="location-badge">
                     <i class="fas fa-map-marker-alt"></i> Damascus, Syria
                 </div>
             </div><!--//profile-container-->
-            
+
             <div class="contact-container container-block">
                 <h2 class="container-block-title">Contact</h2>
                 <ul class="list-unstyled contact-list">
-                    <li><i class="fas fa-envelope"></i><a href="mailto:nosairat.ite@gmail.com">nosairat.ite@gmail.com</a></li>
+                    <li><i class="fas fa-envelope"></i><a
+                            href="mailto:nosairat.ite@gmail.com">nosairat.ite@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:+963935918611">+963 935 918 611</a></li>
-                    <li><i class="fas fa-globe"></i><a href="https://nosairat.github.io/website/" target="_blank">nosairat.website</a></li>
-                    <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mohammad-nosairat/" target="_blank">linkedin.com/in/mohammad-nosairat</a></li>
+                    <li><i class="fas fa-globe"></i><a href="https://nosairat.github.io/website/"
+                            target="_blank">nosairat.website</a></li>
+                    <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mohammad-nosairat/"
+                            target="_blank">linkedin.com/in/mohammad-nosairat</a></li>
                     <!-- <li><i class="fab fa-github"></i><a href="https://github.com/nosairat" target="_blank">github.com/nosairat</a></li> -->
                 </ul>
             </div><!--//contact-container-->
-            
+
             <div class="education-container container-block">
                 <h2 class="container-block-title">Education</h2>
                 <div class="item">
                     <h4 class="degree">BSc in Software Engineering</h4>
                     <h5 class="meta">Damascus University</h5>
                     <div class="time">2013 - 2018</div>
-                    <div class="achievement">• Graduated First in Class (80.7 GPA)<br>• Specialized in Information Systems</div>
+                    <div class="achievement">• Graduated First in Class (80.7 GPA)<br>• Specialized in Information
+                        Systems</div>
                 </div><!--//item-->
             </div><!--//education-container-->
-            
+
             <div class="skills-container container-block">
                 <h2 class="container-block-title">Technical Skills</h2>
                 <ul class="list-unstyled skills-list">
@@ -351,7 +360,7 @@
                     <li><strong>Concepts:</strong> Microservices, API Design, Security</li>
                 </ul>
             </div><!--//skills-->
-            
+
             <div class="languages-container container-block">
                 <h2 class="container-block-title">Languages</h2>
                 <ul class="list-unstyled interests-list">
@@ -359,7 +368,7 @@
                     <li>English <span class="lang-desc">(Professional Fluency)</span></li>
                 </ul>
             </div><!--//languages-->
-            
+
             <div class="interests-container container-block">
                 <h2 class="container-block-title">Interests</h2>
                 <ul class="list-unstyled interests-list">
@@ -368,21 +377,28 @@
                     <li><i class="fas fa-book"></i> Technical Reading</li>
                 </ul>
             </div><!--//interests-->
-            
+
         </div><!--//sidebar-wrapper-->
-        
+
         <div class="main-wrapper">
-            
+
             <section class="section summary-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Professional Profile</h2>
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Professional
+                    Profile</h2>
                 <div class="summary">
-                    <p>Senior Backend Engineer with 7+ years of experience designing and implementing robust financial systems and enterprise solutions. Proven track record of delivering scalable backend architectures with Java and Spring ecosystem. Passionate about building secure, high-performance systems with clean, maintainable code. Strong background in financial technologies including digital wallets, payment processing, and virtual card networks. Recognized for technical leadership and mentoring abilities from university teaching experience.</p>
+                    <p>Senior Backend Engineer with 7+ years of experience designing and implementing robust financial
+                        systems and enterprise solutions. Proven track record of delivering scalable backend
+                        architectures with Java and Spring ecosystem. Passionate about building secure, high-performance
+                        systems with clean, maintainable code. Strong background in financial technologies including
+                        digital wallets, payment processing, and virtual card networks. Recognized for technical
+                        leadership and mentoring abilities from university teaching experience.</p>
                 </div><!--//summary-->
             </section><!--//section-->
-            
+
             <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Professional Experience</h2>
-                
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Professional
+                    Experience</h2>
+
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
@@ -392,7 +408,8 @@
                         <div class="company">foo.mobi (Beirut, Remote)</div>
                     </div><!--//meta-->
                     <div class="details">
-                        <p>Lead backend developer for financial technology solutions serving banking and fintech clients across Middle East markets.</p>
+                        <p>Lead backend developer for financial technology solutions serving banking and fintech clients
+                            across Middle East markets.</p>
                         <ul>
                             <li>Architected and implemented core financial systems</li>
                             <li>Developed secure digital wallet platform with 10K+ registered users</li>
@@ -402,10 +419,11 @@
                             <li>Optimized transaction processing latency by 40% through performance tuning</li>
                             <li>Mentored 5 junior developers in backend best practices</li>
                         </ul>
-                        <div class="technologies">Technologies: Java 8,11,17,21, Spring Boot, Spring Security, MySQL, Docker, OAuth2, Kafka, Microservices</div>
+                        <div class="technologies">Technologies: Java 8,11,17,21, Spring Boot, Spring Security, MySQL,
+                            Docker, OAuth2, Kafka, Microservices</div>
                     </div><!--//details-->
                 </div><!--//item-->
-                
+
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
@@ -415,7 +433,8 @@
                         <div class="company">maids.cc (Dubai, Remote)</div>
                     </div><!--//meta-->
                     <div class="details">
-                        <p>Backend developer for ERP platform for company connecting employers with domestic workers across UAE.</p>
+                        <p>Backend developer for ERP platform for company connecting employers with domestic workers
+                            across UAE.</p>
                         <ul>
                             <li>Built monolithic ERP system managing 2K+ worker profiles</li>
                             <li>Automated document processing reducing manual work by 60%</li>
@@ -424,7 +443,7 @@
                         <div class="technologies">Technologies: Java, Spring Boot, MySQL</div>
                     </div><!--//details-->
                 </div><!--//item-->
-                
+
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
@@ -442,7 +461,7 @@
                         <div class="technologies">Technologies: C#, .NET, SQL Server</div>
                     </div><!--//details-->
                 </div><!--//item-->
-                
+
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
@@ -460,9 +479,9 @@
                         </ul>
                     </div><!--//details-->
                 </div><!--//item-->
-                
+
             </section><!--//section-->
-<!--             
+            <!--             
             <section class="section projects-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-project-diagram"></i></span>Key Projects</h2>
                 <div class="item">
@@ -506,7 +525,8 @@
             -->
 
             <section class="section achievements-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Key Achievements</h2>
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Key Achievements
+                </h2>
                 <div class="item">
                     <ul>
                         <li>Graduated First in Class with honors (Top 1%)</li>
@@ -515,8 +535,9 @@
                     </ul>
                 </div>
             </section><!--//achievements-section-->
-            
+
         </div><!--//main-body-->
     </div>
 </body>
+
 </html>
