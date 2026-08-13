@@ -2,18 +2,33 @@
 <html lang="en">
 
 <head>
-    <title>Mohammad Nosairat | Senior Backend Engineer</title>
+    <title>Mohammad Nosairat | Senior Backend Engineer &amp; Fintech Architect</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Senior Backend Engineer with 5+ years experience in Java, Spring, and financial systems">
+        content="Mohammad Nosairat — Senior Backend Engineer and Product Technical Lead with 8+ years building financial systems in Java and Spring: digital wallets, stored value accounts, virtual card networks, card-on-file payments and key management (soft HSM).">
+    <meta name="keywords"
+        content="Senior Backend Engineer, Java, Spring Boot, Microservices, Fintech, Payments, Digital Wallet, PCI DSS, Kafka, Kubernetes, Software Architect">
     <meta name="author" content="Mohammad Nosairat">
+    <link rel="canonical" href="https://nosairat.github.io/website/">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Mohammad Nosairat | Senior Backend Engineer &amp; Fintech Architect">
+    <meta property="og:description"
+        content="8+ years building secure, high-throughput financial systems with Java and Spring — wallets, card networks, payments and cryptographic key management.">
+    <meta property="og:url" content="https://nosairat.github.io/website/">
+    <meta property="og:image" content="https://nosairat.github.io/website/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
@@ -38,10 +53,13 @@
 
             --bg-body: #f1f5f9;
             --bg-card: #ffffff;
+            --bg-subtle: #f8fafc;
 
             --text-main: #334155;
             --text-muted: #64748b;
             --text-light: #94a3b8;
+
+            --border: #e2e8f0;
 
             --border-radius: 12px;
             --radius-sm: 6px;
@@ -67,6 +85,7 @@
             background-color: var(--bg-body);
             margin: 0;
             font-size: 15px;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
@@ -89,6 +108,11 @@
             padding: 0;
             margin: 0;
             list-style: none;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         /* Layout */
@@ -115,12 +139,12 @@
 
         .profile-container {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .profile {
-            width: 180px;
-            height: 180px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255, 255, 255, 0.15);
@@ -163,7 +187,7 @@
 
         /* Sidebar Blocks */
         .container-block {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.25rem;
         }
 
         .container-block-title {
@@ -183,11 +207,13 @@
             display: flex;
             align-items: center;
             font-size: 0.95rem;
+            word-break: break-word;
         }
 
         .contact-list i {
             width: 28px;
             height: 28px;
+            flex-shrink: 0;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             display: flex;
@@ -232,11 +258,16 @@
         }
 
         .skills-list li.category {
+            flex: 0 0 100%;
             background: transparent;
             border: none;
-            padding-left: 0;
+            padding: 0;
             margin-top: 10px;
-            margin-bottom: 5px;
+            margin-bottom: 0;
+        }
+
+        .skills-list li.category:first-child {
+            margin-top: 0;
         }
 
         /* Education */
@@ -268,15 +299,38 @@
             opacity: 0.9;
         }
 
+        /* Sidebar generic lists (languages, interests, focus) */
+        .side-list li {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .side-list li i {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            margin-top: 0.35rem;
+            width: 14px;
+            flex-shrink: 0;
+        }
+
+        .lang-desc {
+            color: var(--text-light);
+        }
+
         /* Main Content */
         .main-wrapper {
             flex: 1;
             padding: 3.5rem;
             background: #fff;
+            min-width: 0;
         }
 
         .section {
-            margin-bottom: 3.5rem;
+            margin-bottom: 3.25rem;
         }
 
         .section-title {
@@ -293,6 +347,7 @@
         .section-title .icon-holder {
             width: 36px;
             height: 36px;
+            flex-shrink: 0;
             background: var(--primary);
             color: var(--secondary);
             border-radius: 8px;
@@ -308,6 +363,69 @@
             font-size: 1.05rem;
             color: var(--text-main);
             line-height: 1.8;
+            margin-top: 0;
+        }
+
+        .summary p+p {
+            margin-bottom: 0;
+        }
+
+        /* Impact metrics strip */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .metric {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.1rem;
+        }
+
+        .metric-value {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+        }
+
+        /* Core competencies */
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .competency {
+            border-left: 3px solid var(--secondary);
+            padding: 0.25rem 0 0.25rem 1rem;
+        }
+
+        .competency h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .competency p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* Experience Timeline */
@@ -320,6 +438,7 @@
 
         .experiences-section .item:last-child {
             border-left-color: transparent;
+            margin-bottom: 0;
         }
 
         .experiences-section .item:before {
@@ -338,6 +457,7 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            gap: 1rem;
             margin-bottom: 0.25rem;
         }
 
@@ -345,6 +465,7 @@
             font-size: 1.15rem;
             color: var(--primary);
             font-weight: 700;
+            margin-bottom: 0;
         }
 
         .company {
@@ -354,13 +475,14 @@
             font-size: 0.95rem;
         }
 
-        .item .time {
+        .main-wrapper .item .time {
             color: var(--text-light);
             font-size: 0.85rem;
             font-weight: 500;
             background: #f8fafc;
             padding: 2px 8px;
             border-radius: 4px;
+            white-space: nowrap;
         }
 
         .details p {
@@ -376,9 +498,10 @@
         .details li {
             position: relative;
             padding-left: 1.25rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             color: var(--text-main);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .details li:before {
@@ -387,6 +510,16 @@
             left: 0;
             color: var(--secondary);
             font-weight: bold;
+        }
+
+        .details h4 {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            font-weight: 700;
+            margin: 1.25rem 0 0.5rem;
         }
 
         /* Tech Stack Tags */
@@ -421,6 +554,8 @@
             border-radius: var(--radius-sm);
             padding: 1.5rem;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -429,11 +564,24 @@
             border-color: var(--secondary);
         }
 
+        .project-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            color: var(--secondary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            margin-bottom: 0.9rem;
+        }
+
         .project-title {
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .project-role {
@@ -444,8 +592,75 @@
             font-weight: 500;
         }
 
+        .project-card .details {
+            flex: 1;
+        }
+
+        .project-card .details p {
+            font-size: 0.93rem;
+        }
+
+        .project-card .details li {
+            font-size: 0.9rem;
+        }
+
+        .project-card .technologies {
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        /* Achievements */
+        .achievements-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+        }
+
+        .achievements-list li i {
+            position: absolute;
+            left: 0;
+            top: 0.3rem;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        .cv-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .btn-print {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 7px 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-print:hover {
+            border-color: var(--secondary);
+            color: var(--secondary-dark);
+        }
+
         /* Responsive */
-        @media (max-width: 900px) {
+        @media screen and (max-width: 900px) {
             .wrapper {
                 flex-direction: column;
                 margin: 0;
@@ -465,7 +680,8 @@
 
             /* Utility for blocks */
             .contact-list,
-            .skills-list {
+            .skills-list,
+            .side-list {
                 display: inline-block;
                 text-align: left;
             }
@@ -476,11 +692,159 @@
 
             .upper-row {
                 flex-direction: column;
+                align-items: flex-start;
             }
 
-            .item .time {
+            .main-wrapper .item .time {
                 display: inline-block;
                 margin-top: 0.25rem;
+            }
+        }
+
+        /* Print / PDF export */
+        @media print {
+            @page {
+                margin: 0;
+                size: A4;
+            }
+
+            :root {
+                --bg-body: #ffffff;
+            }
+
+            body {
+                font-size: 10.5px;
+                line-height: 1.5;
+                background: #fff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .wrapper {
+                margin: 0;
+                max-width: 100%;
+                min-height: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .sidebar-wrapper {
+                width: 205px;
+                padding: 1.25rem 1rem;
+            }
+
+            .main-wrapper {
+                padding: 1.25rem 1.25rem;
+            }
+
+            .container-block {
+                margin-bottom: 1.25rem;
+            }
+
+            .container-block-title {
+                margin-bottom: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .contact-list li,
+            .side-list li {
+                margin-bottom: 0.4rem;
+                font-size: 0.85rem;
+            }
+
+            .metrics,
+            .competencies,
+            .projects-wrapper {
+                gap: 0.6rem;
+            }
+
+            .metric {
+                padding: 0.5rem 0.6rem;
+            }
+
+            .metric-value {
+                font-size: 1.2rem;
+            }
+
+            .projects-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-card {
+                padding: 0.9rem;
+            }
+
+            .project-icon {
+                display: none;
+            }
+
+            .details ul,
+            .technologies {
+                margin-bottom: 0.5rem;
+            }
+
+            .details li {
+                margin-bottom: 0.25rem;
+            }
+
+            .details h4 {
+                margin: 0.75rem 0 0.35rem;
+            }
+
+            .profile {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 1rem;
+            }
+
+            .name {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                margin-bottom: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.15rem;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+            }
+
+            .section-title .icon-holder {
+                width: 26px;
+                height: 26px;
+                font-size: 0.8rem;
+                margin-right: 0.6rem;
+            }
+
+            .summary p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .experiences-section .item,
+            .project-card,
+            .competency,
+            .metric {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .experiences-section .item {
+                margin-bottom: 1.25rem;
+            }
+
+            .project-card:hover,
+            .profile:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .cv-footer,
+            .btn-print,
+            .no-print {
+                display: none !important;
             }
         }
     </style>
@@ -492,9 +856,9 @@
             <div class="profile-container">
                 <img class="profile" src="assets/images/profile.jpg" alt="Mohammad Nosairat Profile Photo">
                 <h1 class="name">Mohammad Nosairat</h1>
-                <h3 class="tagline">Senior Backend Engineer<br>Financial Systems Specialist</h3>
+                <h2 class="tagline">Senior Backend Engineer<br>Fintech Architect &amp; Product Technical Lead</h2>
                 <div class="location-badge">
-                    <i class="fas fa-map-marker-alt"></i> Damascus, Syria
+                    <i class="fas fa-map-marker-alt"></i> Damascus, Syria &middot; Remote
                 </div>
             </div><!--//profile-container-->
 
@@ -505,21 +869,34 @@
                             href="mailto:nosairat.ite@gmail.com">nosairat.ite@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:+963935918611">+963 935 918 611</a></li>
                     <li><i class="fas fa-globe"></i><a href="https://nosairat.github.io/website/"
-                            target="_blank">nosairat.website</a></li>
+                            target="_blank" rel="noopener">nosairat.website</a></li>
                     <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mohammad-nosairat/"
-                            target="_blank">linkedin.com/in/mohammad-nosairat</a></li>
-                    <!-- <li><i class="fab fa-github"></i><a href="https://github.com/nosairat" target="_blank">github.com/nosairat</a></li> -->
+                            target="_blank" rel="noopener">linkedin.com/in/mohammad-nosairat</a></li>
+                    <!-- <li><i class="fab fa-github"></i><a href="https://github.com/nosairat" target="_blank" rel="noopener">github.com/nosairat</a></li> -->
                 </ul>
             </div><!--//contact-container-->
+
+            <div class="focus-container container-block">
+                <h2 class="container-block-title">What I'm Good At</h2>
+                <ul class="list-unstyled side-list">
+                    <li><i class="fas fa-money-bill-transfer"></i> Payment &amp; wallet platforms end-to-end</li>
+                    <li><i class="fas fa-shield-halved"></i> Security, cryptography &amp; PCI-aligned design</li>
+                    <li><i class="fas fa-diagram-project"></i> Microservices &amp; event-driven architecture</li>
+                    <li><i class="fas fa-users-gear"></i> Leading product teams &amp; mentoring engineers</li>
+                </ul>
+            </div><!--//focus-container-->
 
             <div class="education-container container-block">
                 <h2 class="container-block-title">Education</h2>
                 <div class="item">
-                    <h4 class="degree">BSc in Software Engineering</h4>
-                    <h5 class="meta">Damascus University</h5>
-                    <div class="time">2013 - 2018</div>
-                    <div class="achievement">• Graduated First in Class (80.7 GPA)<br>• Specialized in Information
-                        Systems</div>
+                    <h3 class="degree">BSc in Software Engineering</h3>
+                    <h4 class="meta">Damascus University &mdash; Faculty of IT</h4>
+                    <div class="time">2013 &ndash; 2018</div>
+                    <div class="achievement">
+                        &bull; Graduated First in Class (80.7 GPA)<br>
+                        &bull; Specialized in Information Systems<br>
+                        &bull; Returned as Teaching Assistant, 2019&ndash;2021
+                    </div>
                 </div><!--//item-->
             </div><!--//education-container-->
 
@@ -528,33 +905,74 @@
                 <ul class="list-unstyled skills-list">
                     <li class="category"><strong>Languages</strong></li>
                     <li>Java 17/21</li>
-                    <li>SQL (MySQL, Postgres)</li>
+                    <li>SQL</li>
+                    <li>C# / .NET</li>
 
                     <li class="category"><strong>Frameworks</strong></li>
                     <li>Spring Boot 3</li>
                     <li>Spring Cloud</li>
-                    <li>Hibernate/JPA</li>
                     <li>Spring Security</li>
+                    <li>Hibernate / JPA</li>
+                    <li>OAuth2</li>
+
+                    <li class="category"><strong>Architecture</strong></li>
+                    <li>Microservices</li>
+                    <li>Event-Driven</li>
+                    <li>REST API Design</li>
+                    <li>Idempotency &amp; Reconciliation</li>
+
+                    <li class="category"><strong>Data</strong></li>
+                    <li>MySQL</li>
+                    <li>PostgreSQL</li>
+                    <li>SQL Server</li>
+                    <li>Redis</li>
+                    <li>Spring Cache</li>
+
+                    <li class="category"><strong>Testing</strong></li>
+                    <li>JUnit 5</li>
+                    <li>Mockito</li>
+                    <li>Testcontainers</li>
 
                     <li class="category"><strong>Infrastructure</strong></li>
                     <li>Docker</li>
-                    <li>Kafka</li>
                     <li>Kubernetes</li>
-                    <li>CI/CD (GitLab/Jenkins)</li>
+                    <li>Kafka</li>
+                    <li>GitLab CI</li>
+                    <li>Jenkins</li>
+
+                    <li class="category"><strong>Observability</strong></li>
+                    <li>Grafana</li>
+                    <li>Prometheus</li>
+
+                    <li class="category"><strong>Security</strong></li>
+                    <li>PCI DSS</li>
+                    <li>Tokenization</li>
+                    <li>AES-256</li>
+                    <li>Key Management (HSM)</li>
+                    <li>JCA Providers</li>
+                    <li>RBAC &amp; Audit Trails</li>
+
+                    <li class="category"><strong>Practices &amp; AI Tooling</strong></li>
+                    <li>Code Review</li>
+                    <li>Mentoring</li>
+                    <li>Claude Code</li>
+                    <li>GitHub Copilot</li>
+                    <li>Cursor</li>
+
                 </ul>
             </div><!--//skills-->
 
             <div class="languages-container container-block">
                 <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Arabic <span class="lang-desc">(Native)</span></li>
-                    <li>English <span class="lang-desc">(Professional Fluency)</span></li>
+                <ul class="list-unstyled side-list">
+                    <li><i class="fas fa-comment"></i> Arabic <span class="lang-desc">(Native)</span></li>
+                    <li><i class="fas fa-comment"></i> English <span class="lang-desc">(Professional fluency)</span></li>
                 </ul>
             </div><!--//languages-->
 
             <div class="interests-container container-block">
                 <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
+                <ul class="list-unstyled side-list">
                     <li><i class="fas fa-mountain"></i> Rock Climbing</li>
                     <li><i class="fas fa-futbol"></i> Football</li>
                     <li><i class="fas fa-book"></i> Technical Reading</li>
@@ -569,14 +987,65 @@
                 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Professional
                     Profile</h2>
                 <div class="summary">
-                    <p>Senior Backend Engineer with 7+ years of experience designing and implementing robust financial
-                        systems and enterprise solutions. Proven track record of delivering scalable backend
-                        architectures with Java and Spring ecosystem. Passionate about building secure, high-performance
-                        systems with clean, maintainable code. Strong background in financial technologies including
-                        digital wallets, payment processing, and virtual card networks. Recognized for technical
-                        leadership and mentoring abilities from university teaching experience.</p>
+                    <p>Senior Backend Engineer and Product Technical Lead with <strong>8+ years</strong> designing,
+                        building and running money-moving systems for banks and fintechs across the Middle East. I own
+                        products end to end &mdash; from architecture and API contracts through implementation, security
+                        review and production support &mdash; using Java and the Spring ecosystem on containerised
+                        microservices.</p>
+                    <p>My work centres on the parts of fintech where correctness is not negotiable: digital wallets and
+                        stored value accounts, virtual card issuance, card-on-file payments, and cryptographic key
+                        management. I care about idempotent transaction flows that never double-spend, reconciliation
+                        that always balances, and code that the next engineer can safely change. Alongside delivery I
+                        lead a product team and mentor engineers, drawing on two years of lecturing software engineering
+                        at Damascus University.</p>
+
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="metric-value">8+</span>
+                            <span class="metric-label">Years in backend</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">5+</span>
+                            <span class="metric-label">Financial systems shipped</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">10K+</span>
+                            <span class="metric-label">Wallet users served</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Lower txn latency</span>
+                        </div>
+                    </div>
                 </div><!--//summary-->
             </section><!--//section-->
+
+            <section class="section competencies-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-layer-group"></i></span>Core
+                    Competencies</h2>
+                <div class="competencies">
+                    <div class="competency">
+                        <h3>Financial Systems Engineering</h3>
+                        <p>Stored value accounts, multi-currency ledgers, P2P transfers, top-up and cash-out flows,
+                            virtual card issuance, spend controls and automated reconciliation.</p>
+                    </div>
+                    <div class="competency">
+                        <h3>Distributed Architecture</h3>
+                        <p>Spring Boot microservices communicating over Kafka, containerised with Docker and orchestrated
+                            on Kubernetes; API contracts designed around real client needs.</p>
+                    </div>
+                    <div class="competency">
+                        <h3>Security &amp; Cryptography</h3>
+                        <p>PCI DSS-aligned card storage, end-to-end tokenization, AES-256 encryption at rest, custom Java
+                            Security Provider integration, key management via a soft HSM.</p>
+                    </div>
+                    <div class="competency">
+                        <h3>Technical Leadership</h3>
+                        <p>Product technical lead across multiple banking integrations: shaping designs, reviewing code,
+                            mentoring five junior engineers and teaching architecture at university level.</p>
+                    </div>
+                </div>
+            </section><!--//competencies-section-->
 
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Professional
@@ -588,34 +1057,55 @@
                             <h3 class="job-title">
                                 Senior Java Developer
                                 <span style="color:var(--text-light); font-weight:300; margin: 0 4px;">|</span>
-                                <span>Product Technical
-                                    Lead</span>
+                                <span>Product Technical Lead</span>
                             </h3>
-                            <div class="time">2021 - Present</div>
+                            <div class="time">2021 &ndash; Present</div>
                         </div><!--//upper-row-->
-                        <div class="company">foo.mobi (Beirut, Remote)</div>
+                        <div class="company">foo.mobi &mdash; Beirut, Lebanon (Remote)</div>
                     </div><!--//meta-->
                     <div class="details">
-                        <p>Lead backend developer for financial technology solutions serving banking and fintech clients
-                            across Middle East markets.</p>
+                        <p>Lead backend engineer for the financial technology products foo.mobi delivers to banks and
+                            fintech clients across Middle East markets. Technical owner of several products: I set the
+                            architecture, write the critical paths, define the integration contracts clients build
+                            against, and stay accountable for them in production.</p>
+                        <h4>Delivery &amp; architecture</h4>
                         <ul>
-                            <li>Architected and implemented core financial systems</li>
-                            <li>Developed secure digital wallet platform with 10K+ registered users</li>
-                            <li>Designed Stored Value Account system (SVA)</li>
-                            <li>Designed virtual card network (VCN)</li>
-                            <li>Implemented Security Vault (soft HSM) solution</li>
-                            <li>Optimized transaction processing latency by 40% through performance tuning</li>
-                            <li>Mentored 5 junior developers in backend best practices</li>
+                            <li>Architected and implemented core financial systems &mdash; a Stored Value Account (SVA)
+                                platform, a Virtual Card Network (VCN), a Card-on-File payment platform and a digital
+                                channel layer for banks &mdash; as Spring Boot microservices on Docker.</li>
+                            <li>Built and launched a secure digital wallet platform now serving <strong>10,000+
+                                    registered users</strong>, covering multi-currency balances, P2P transfers, top-up
+                                and cash-out.</li>
+                            <li>Designed the transaction engine around idempotency and automated reconciliation, so
+                                retries and partial failures can never double-charge or leave balances out of step.</li>
+                            <li>Delivered a Security Vault (soft HSM) for banking secrets, including a custom Java
+                                Security Provider, AES-256 encryption at rest and white-box cryptography.</li>
+                            <li>Designed API contracts and dynamic channel implementations that let one platform serve
+                                many banks, each with its own data sources and integration constraints.</li>
+                        </ul>
+                        <h4>Performance, reliability &amp; leadership</h4>
+                        <ul>
+                            <li>Cut transaction processing latency by <strong>40%</strong> through query, JVM and
+                                service-level performance tuning.</li>
+                            <li>Hardened services with Spring Security and OAuth2, role-based access control and audit
+                                trails to satisfy bank security reviews and PCI DSS requirements.</li>
+                            <li>Mentored <strong>5 junior developers</strong> through code review, design walkthroughs
+                                and backend best practices; several now own services independently.</li>
+                            <li>Acted as technical point of contact for client integrations, translating banking
+                                requirements into deliverable scope for the engineering team.</li>
                         </ul>
                         <div class="technologies">
                             <span class="tech-tag">Java 21</span>
                             <span class="tech-tag">Spring Boot 3</span>
                             <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">Spring Cloud</span>
                             <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Docker</span>
                             <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
                             <span class="tech-tag">Microservices</span>
                             <span class="tech-tag">OAuth2</span>
+                            <span class="tech-tag">PCI DSS</span>
                         </div>
                     </div><!--//details-->
                 </div><!--//item-->
@@ -624,21 +1114,28 @@
                     <div class="meta">
                         <div class="upper-row">
                             <h3 class="job-title">Software Engineer</h3>
-                            <div class="time">2020 - 2021</div>
+                            <div class="time">2020 &ndash; 2021</div>
                         </div><!--//upper-row-->
-                        <div class="company">maids.cc (Dubai, Remote)</div>
+                        <div class="company">maids.cc &mdash; Dubai, UAE (Remote)</div>
                     </div><!--//meta-->
                     <div class="details">
-                        <p>Backend developer for ERP platform for company connecting employers with domestic workers
-                            across UAE.</p>
+                        <p>Backend developer on the in-house ERP platform behind a UAE marketplace connecting employers
+                            with domestic workers &mdash; the system operations staff used daily to run hiring,
+                            paperwork and payroll.</p>
                         <ul>
-                            <li>Built monolithic ERP system managing 2K+ worker profiles</li>
-                            <li>Automated document processing reducing manual work by 60%</li>
-                            <li>Implemented reporting dashboard for business analytics</li>
+                            <li>Built and extended a monolithic ERP managing <strong>2,000+ worker profiles</strong>
+                                across the full lifecycle from application to placement.</li>
+                            <li>Automated document processing and paperwork generation, reducing manual back-office work
+                                by <strong>60%</strong>.</li>
+                            <li>Implemented a reporting dashboard giving management live visibility into placements and
+                                operational KPIs.</li>
+                            <li>Worked directly with operations teams to turn day-to-day process pain into shipped
+                                features.</li>
                         </ul>
                         <div class="technologies">
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Hibernate/JPA</span>
                             <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">Monolith</span>
                         </div>
@@ -649,20 +1146,26 @@
                     <div class="meta">
                         <div class="upper-row">
                             <h3 class="job-title">Junior Software Engineer</h3>
-                            <div class="time">2018 - 2020</div>
+                            <div class="time">2018 &ndash; 2020</div>
                         </div><!--//upper-row-->
-                        <div class="company">Itech/Syriatel (Damascus)</div>
+                        <div class="company">Itech / Syriatel &mdash; Damascus, Syria</div>
                     </div><!--//meta-->
                     <div class="details">
-                        <p>Developed workflow management system for government reconstruction documentation.</p>
+                        <p>Developed a workflow management system used to document and track government reconstruction
+                            projects, handling sensitive records across multiple government stakeholders.</p>
                         <ul>
-                            <li>Implemented role-based access control for sensitive data</li>
-                            <li>Designed audit trail for compliance requirements</li>
+                            <li>Implemented role-based access control so each stakeholder saw only the sensitive data
+                                they were authorised for.</li>
+                            <li>Designed a full audit trail over record changes to meet government compliance and
+                                traceability requirements.</li>
+                            <li>Modelled multi-stage approval workflows in SQL Server and built the .NET services
+                                driving them.</li>
                         </ul>
                         <div class="technologies">
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">.NET</span>
                             <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">RBAC</span>
                         </div>
                     </div><!--//details-->
                 </div><!--//item-->
@@ -670,107 +1173,203 @@
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
-                            <h3 class="job-title">Teaching Assistant</h3>
-                            <div class="time">2019 - 2021</div>
+                            <h3 class="job-title">Teaching Assistant &mdash; Software Engineering</h3>
+                            <div class="time">2019 &ndash; 2021</div>
                         </div><!--//upper-row-->
                         <div class="company">Damascus University, Faculty of IT</div>
                     </div><!--//meta-->
                     <div class="details">
-                        <p>Lectured advanced software engineering topics to final-year students.</p>
+                        <p>Lectured advanced software engineering topics to final-year students while working full time
+                            as an engineer &mdash; the habit of explaining hard designs clearly still shapes how I lead
+                            technically.</p>
                         <ul>
-                            <li>Developed curriculum for microservices architecture course</li>
-                            <li>Taught performance optimization techniques</li>
-                            <li>Supervised 15+ student projects</li>
+                            <li>Developed the curriculum for a microservices architecture course from scratch.</li>
+                            <li>Taught performance optimisation techniques grounded in real production cases.</li>
+                            <li>Supervised <strong>15+ student graduation projects</strong> from proposal to defence.
+                            </li>
                         </ul>
                     </div><!--//details-->
                 </div><!--//item-->
 
             </section><!--//section-->
+
             <section class="section projects-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-code-branch"></i></span>Key
                     Projects</h2>
 
                 <div class="projects-wrapper">
                     <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-building-columns"></i></div>
                         <h3 class="project-title">Digital Channel Platform</h3>
                         <span class="project-role">Lead Architect</span>
                         <div class="details">
-                            <p>Developed a secure digital channel platform for banks and financial institutions.</p>
+                            <p>Secure digital channel platform giving banks and financial institutions a single
+                                integration surface over many backend systems.</p>
                             <ul>
-                                <li>Designed API contracts tailored to frontend requirements</li>
-                                <li>Supported multiple dynamic implementations for channel data retrieval</li>
-                                <li>Integrated with diverse clients and data sources</li>
+                                <li>Designed API contracts around real frontend requirements rather than internal data
+                                    shapes</li>
+                                <li>Supported multiple pluggable implementations for channel data retrieval per client
+                                </li>
+                                <li>Integrated diverse clients and heterogeneous data sources behind one contract</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <h3 class="project-title">Digital Wallet Platform (SVA)</h3>
-                        <span class="project-role">Lead Architect & Senior Developer</span>
-                        <div class="details">
-                            <p>Developed a secure wallet system (Stored Value Account) supporting multiple currencies
-                                and operations (P2P, topup, cashout ...).</p>
-                            <ul>
-                                <li>Implemented idempotent transaction processing engine</li>
-                                <li>Integrated real-time fraud detection</li>
-                                <li>Built automated reconciliation system</li>
-                            </ul>
+                        <div class="technologies">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">REST</span>
                         </div>
                     </div>
 
                     <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-wallet"></i></div>
+                        <h3 class="project-title">Digital Wallet Platform (SVA)</h3>
+                        <span class="project-role">Lead Architect &amp; Senior Developer</span>
+                        <div class="details">
+                            <p>Stored Value Account wallet supporting multiple currencies and the full operation set
+                                &mdash; P2P transfer, top-up, cash-out &mdash; for 10K+ users.</p>
+                            <ul>
+                                <li>Implemented an idempotent transaction processing engine safe under retries</li>
+                                <li>Integrated real-time fraud detection into the authorisation path</li>
+                                <li>Built an automated reconciliation system to keep ledgers provably balanced</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Java 21</span>
+                            <span class="tech-tag">Spring Boot 3</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Kafka</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon"><i class="far fa-credit-card"></i></div>
                         <h3 class="project-title">Virtual Card Network (VCN)</h3>
                         <span class="project-role">Senior Developer</span>
                         <div class="details">
-                            <p>Designed card issuance system for virtual payment cards.</p>
+                            <p>Card issuance system for virtual payment cards, from provisioning through spend
+                                authorisation.</p>
                             <ul>
-                                <li>End-to-end card tokenization security</li>
-                                <li>Complex spend control logic</li>
+                                <li>End-to-end card tokenization so raw card data never leaves the secure boundary</li>
+                                <li>Complex spend control logic (limits, scopes and usage rules) per card</li>
                             </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Tokenization</span>
                         </div>
                     </div>
 
                     <div class="project-card">
-                        <h3 class="project-title">Payment Platform (Card On File)</h3>
-                        <span class="project-role">Product Technical Lead & Senior Developer</span>
+                        <div class="project-icon"><i class="fas fa-cart-shopping"></i></div>
+                        <h3 class="project-title">Payment Platform (Card on File)</h3>
+                        <span class="project-role">Product Technical Lead &amp; Senior Developer</span>
                         <div class="details">
-                            <p>Designed Card-on-File system for secure stored-card payments.</p>
+                            <p>Card-on-File system enabling merchants to accept repeat payments from securely stored
+                                cards.</p>
                             <ul>
-                                <li>Securely stored card details in compliance with PCI DSS</li>
-                                <li>End-to-end card tokenization security</li>
-                                <li>Implemented hosted checkout solution</li>
+                                <li>Stored card credentials in compliance with PCI DSS</li>
+                                <li>End-to-end card tokenization across storage and authorisation</li>
+                                <li>Implemented a hosted checkout solution so merchants stay out of PCI scope</li>
                             </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Security</span>
+                            <span class="tech-tag">PCI DSS</span>
                         </div>
                     </div>
 
                     <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-key"></i></div>
                         <h3 class="project-title">Security Vault (Soft HSM)</h3>
-                        <span class="project-role">Product Technical Lead & Senior Engineer</span>
+                        <span class="project-role">Product Technical Lead &amp; Senior Engineer</span>
                         <div class="details">
-                            <p>Built a secure key management and operation service for banking secrets.</p>
+                            <p>Key management and cryptographic operation service protecting banking secrets in
+                                software, where a hardware HSM was not an option.</p>
                             <ul>
-                                <li>Implemented custom Java Security Provider integration</li>
-                                <li>AES-256 encryption at rest</li>
-                                <li>White cryptography algorithms</li>
+                                <li>Implemented a custom Java Security Provider (JCA) integration</li>
+                                <li>AES-256 encryption at rest for all managed key material</li>
+                                <li>Applied white-box cryptography techniques to protect keys in use</li>
                             </ul>
                         </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JCA</span>
+                            <span class="tech-tag">AES-256</span>
+                            <span class="tech-tag">Key Management</span>
+                        </div>
                     </div>
+
+                    <!-- Note: 5 cards fill the grid evenly at 2 columns in print. If you add a
+                         6th, keep descriptions to ~2 lines so the print layout stays at 5 pages. -->
                 </div>
             </section>
 
             <section class="section achievements-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Key Achievements
-                </h2>
-                <div class="item">
-                    <ul>
-                        <li>Graduated First in Class with honors (Top 1%)</li>
-                        <li>Successfully delivered 5+ financial systems processing $10M+ annually</li>
-                        <li>Reduced system latency by 40% through performance optimization</li>
-                    </ul>
-                </div>
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Key
+                    Achievements</h2>
+                <ul class="achievements-list">
+                    <li><i class="fas fa-award"></i>Graduated <strong>first in class</strong> in Software Engineering at
+                        Damascus University (top 1%), and was invited back to teach.</li>
+                    <li><i class="fas fa-rocket"></i>Delivered <strong>5+ financial systems</strong> into production
+                        &mdash; wallet, card network, card-on-file payments, digital channel and security vault &mdash;
+                        together processing <strong>$10M+ annually</strong>.</li>
+                    <li><i class="fas fa-gauge-high"></i>Reduced transaction processing latency by <strong>40%</strong>
+                        through targeted performance optimisation.</li>
+                    <li><i class="fas fa-user-shield"></i>Took products through bank security reviews with PCI
+                        DSS-aligned card handling, tokenization and a purpose-built key management service.</li>
+                    <li><i class="fas fa-users"></i>Grew engineers: mentored <strong>5 junior developers</strong> into
+                        independent service owners and supervised <strong>15+ university projects</strong>.</li>
+                </ul>
             </section><!--//achievements-section-->
+
+            <footer class="cv-footer">
+                <span>Last updated August 2026 &middot; Open to senior backend &amp; architecture roles (remote)</span>
+                <button class="btn-print no-print" onclick="window.print()">
+                    <i class="fas fa-file-arrow-down"></i> Save as PDF
+                </button>
+            </footer>
 
         </div><!--//main-body-->
     </div>
+
+    <!-- Structured data: helps search engines and recruiter tooling understand the page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mohammad Nosairat",
+        "jobTitle": "Senior Backend Engineer & Product Technical Lead",
+        "email": "mailto:nosairat.ite@gmail.com",
+        "telephone": "+963935918611",
+        "url": "https://nosairat.github.io/website/",
+        "image": "https://nosairat.github.io/website/assets/images/profile.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Damascus",
+            "addressCountry": "SY"
+        },
+        "sameAs": ["https://www.linkedin.com/in/mohammad-nosairat/"],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Damascus University"
+        },
+        "knowsLanguage": ["ar", "en"],
+        "knowsAbout": [
+            "Java",
+            "Spring Boot",
+            "Microservices",
+            "Apache Kafka",
+            "Kubernetes",
+            "Payment Systems",
+            "Digital Wallets",
+            "PCI DSS",
+            "Cryptography",
+            "Key Management"
+        ]
+    }
+    </script>
 </body>
 
 </html>
