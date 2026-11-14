@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mohammad Nosairat | Senior Backend Engineer &amp; Fintech Architect</title>
+    <title>Mohammad Nosairat | Senior Backend Engineer &amp; Product Technical Lead</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
 
     <!-- Open Graph / social preview -->
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="Mohammad Nosairat | Senior Backend Engineer &amp; Fintech Architect">
+    <meta property="og:title" content="Mohammad Nosairat | Senior Backend Engineer &amp; Product Technical Lead">
     <meta property="og:description"
         content="8+ years building secure, high-throughput financial systems with Java and Spring — wallets, card networks, payments and cryptographic key management.">
     <meta property="og:url" content="https://nosairat.github.io/website/">
@@ -185,6 +185,12 @@
             border-radius: 20px;
         }
 
+        .availability {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-top: 0.75rem;
+        }
+
         /* Sidebar Blocks */
         .container-block {
             margin-bottom: 2.25rem;
@@ -299,6 +305,11 @@
             opacity: 0.9;
         }
 
+        .education-container .achievement strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
         /* Sidebar generic lists (languages, interests, focus) */
         .side-list li {
             font-size: 0.9rem;
@@ -402,32 +413,6 @@
             font-weight: 600;
         }
 
-        /* Core competencies */
-        .competencies {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .competency {
-            border-left: 3px solid var(--secondary);
-            padding: 0.25rem 0 0.25rem 1rem;
-        }
-
-        .competency h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.35rem;
-        }
-
-        .competency p {
-            margin: 0;
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
         /* Experience Timeline */
         .experiences-section .item {
             position: relative;
@@ -476,7 +461,7 @@
         }
 
         .main-wrapper .item .time {
-            color: var(--text-light);
+            color: var(--text-muted);
             font-size: 0.85rem;
             font-weight: 500;
             background: #f8fafc;
@@ -517,7 +502,7 @@
             font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--text-light);
+            color: var(--text-muted);
             font-weight: 700;
             margin: 1.25rem 0 0.5rem;
         }
@@ -541,90 +526,6 @@
             border: 1px solid #e2e8f0;
         }
 
-        /* Projects Grid */
-        .projects-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-sm);
-            padding: 1.5rem;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--secondary);
-        }
-
-        .project-icon {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            background: #f1f5f9;
-            color: var(--secondary-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            margin-bottom: 0.9rem;
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.35rem;
-        }
-
-        .project-role {
-            font-size: 0.85rem;
-            color: var(--secondary-dark);
-            margin-bottom: 1rem;
-            display: block;
-            font-weight: 500;
-        }
-
-        .project-card .details {
-            flex: 1;
-        }
-
-        .project-card .details p {
-            font-size: 0.93rem;
-        }
-
-        .project-card .details li {
-            font-size: 0.9rem;
-        }
-
-        .project-card .technologies {
-            margin-top: auto;
-            padding-top: 0.5rem;
-        }
-
-        /* Achievements */
-        .achievements-list li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 0.85rem;
-            font-size: 0.98rem;
-        }
-
-        .achievements-list li i {
-            position: absolute;
-            left: 0;
-            top: 0.3rem;
-            color: var(--accent);
-            font-size: 0.85rem;
-        }
-
         /* Footer */
         .cv-footer {
             border-top: 1px solid var(--border);
@@ -635,7 +536,7 @@
             align-items: center;
             justify-content: space-between;
             font-size: 0.85rem;
-            color: var(--text-light);
+            color: var(--text-muted);
         }
 
         .btn-print {
@@ -701,150 +602,317 @@
             }
         }
 
-        /* Print / PDF export */
+        /* Print / PDF export: single column, dark text, so the PDF is short and
+           parses cleanly in applicant tracking systems. The sidebar and main
+           wrappers dissolve and their blocks are re-ordered with flex `order`. */
         @media print {
             @page {
-                margin: 0;
+                margin: 12mm 13mm;
                 size: A4;
             }
 
-            :root {
-                --bg-body: #ffffff;
+            /* rem sizes below scale from this */
+            html {
+                font-size: 10.5px;
             }
 
             body {
-                font-size: 10.5px;
-                line-height: 1.5;
+                font-size: 1rem;
+                line-height: 1.45;
                 background: #fff;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
 
             .wrapper {
+                display: flex;
+                flex-direction: column;
                 margin: 0;
                 max-width: 100%;
                 min-height: 0;
                 border-radius: 0;
                 box-shadow: none;
+                overflow: visible;
             }
 
-            .sidebar-wrapper {
-                width: 205px;
-                padding: 1.25rem 1rem;
-            }
-
+            .sidebar-wrapper,
             .main-wrapper {
-                padding: 1.25rem 1.25rem;
+                display: contents;
             }
 
-            .container-block {
-                margin-bottom: 1.25rem;
+            .profile-container { order: 1; }
+            .contact-container { order: 2; }
+            .summary-section { order: 3; }
+            .experiences-section { order: 4; }
+            .education-container { order: 5; }
+            .skills-container { order: 6; }
+            .languages-container { order: 7; }
+            .interests-container { order: 8; }
+
+            /* Same points as the profile paragraph */
+            .focus-container,
+            .cv-footer,
+            .no-print,
+            .section-title .icon-holder,
+            .contact-container .container-block-title {
+                display: none !important;
             }
 
-            .container-block-title {
+            /* Header */
+            .profile-container {
+                display: flow-root;
+                text-align: left;
                 margin-bottom: 0.6rem;
-                font-size: 0.8rem;
-            }
-
-            .contact-list li,
-            .side-list li {
-                margin-bottom: 0.4rem;
-                font-size: 0.85rem;
-            }
-
-            .metrics,
-            .competencies,
-            .projects-wrapper {
-                gap: 0.6rem;
-            }
-
-            .metric {
-                padding: 0.5rem 0.6rem;
-            }
-
-            .metric-value {
-                font-size: 1.2rem;
-            }
-
-            .projects-wrapper {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .project-card {
-                padding: 0.9rem;
-            }
-
-            .project-icon {
-                display: none;
-            }
-
-            .details ul,
-            .technologies {
-                margin-bottom: 0.5rem;
-            }
-
-            .details li {
-                margin-bottom: 0.25rem;
-            }
-
-            .details h4 {
-                margin: 0.75rem 0 0.35rem;
             }
 
             .profile {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 1rem;
-            }
-
-            .name {
-                font-size: 1.5rem;
-            }
-
-            .section {
-                margin-bottom: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.15rem;
-                margin-bottom: 1rem;
-                padding-bottom: 0.5rem;
-            }
-
-            .section-title .icon-holder {
-                width: 26px;
-                height: 26px;
-                font-size: 0.8rem;
-                margin-right: 0.6rem;
-            }
-
-            .summary p {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-
-            .experiences-section .item,
-            .project-card,
-            .competency,
-            .metric {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            .experiences-section .item {
-                margin-bottom: 1.25rem;
-            }
-
-            .project-card:hover,
-            .profile:hover {
-                transform: none;
+                float: right;
+                width: 72px;
+                height: 72px;
+                margin: 0 0 0 1rem;
+                border: none;
                 box-shadow: none;
             }
 
-            .cv-footer,
-            .btn-print,
-            .no-print {
-                display: none !important;
+            .name {
+                color: var(--primary);
+                font-size: 2rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .tagline {
+                color: var(--secondary-dark);
+                font-size: 1.1rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .location-badge {
+                background: none;
+                padding: 0;
+                color: var(--text-muted);
+                font-size: 1rem;
+            }
+
+            .availability {
+                color: var(--text-muted);
+                font-size: 1rem;
+                margin-top: 0.1rem;
+            }
+
+            .contact-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.2rem 1.5rem;
+            }
+
+            .contact-list li {
+                margin: 0;
+                font-size: 1rem;
+                color: var(--text-main);
+            }
+
+            .contact-list i {
+                background: none;
+                width: auto;
+                height: auto;
+                margin-right: 5px;
+                color: var(--secondary-dark);
+            }
+
+            /* Blocks and headings */
+            .container-block,
+            .section {
+                margin-bottom: 1rem;
+            }
+
+            .container-block-title,
+            .section-title {
+                font-family: var(--font-heading);
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-transform: none;
+                letter-spacing: 0;
+                color: var(--primary);
+                margin-bottom: 0.6rem;
+                padding-bottom: 0.3rem;
+                border-bottom: 1px solid var(--border);
+                break-after: avoid;
+            }
+
+            /* Profile */
+            .summary p {
+                font-size: 1rem;
+                line-height: 1.55;
+                margin-bottom: 0.5rem;
+            }
+
+            .metrics {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+                margin-top: 0.7rem;
+            }
+
+            .metric {
+                padding: 0.4rem 0.6rem;
+                break-inside: avoid;
+            }
+
+            .metric-value {
+                font-size: 1.25rem;
+            }
+
+            /* Experience */
+            .experiences-section .item {
+                margin-bottom: 0.9rem;
+                padding-left: 0;
+                border-left: none;
+            }
+
+            .experiences-section .item:before {
+                display: none;
+            }
+
+            .job-title {
+                font-size: 1.1rem;
+            }
+
+            .main-wrapper .item .time {
+                font-size: 0.95rem;
+                background: none;
+                padding: 0;
+            }
+
+            .tech-tag {
+                font-size: 0.85rem;
+            }
+
+            .metric-label {
+                font-size: 0.75rem;
+            }
+
+            .experiences-section .item .meta {
+                break-after: avoid;
+            }
+
+            .company {
+                margin-bottom: 0.35rem;
+                font-size: 1rem;
+            }
+
+            .details p {
+                margin: 0 0 0.4rem;
+            }
+
+            .details ul {
+                margin-bottom: 0.4rem;
+            }
+
+            .details li {
+                margin-bottom: 0.2rem;
+                font-size: 1rem;
+                line-height: 1.45;
+                break-inside: avoid;
+            }
+
+            .details h4 {
+                margin: 0.6rem 0 0.3rem;
+                break-after: avoid;
+            }
+
+            .technologies {
+                margin-top: 0.4rem;
+                gap: 4px;
+            }
+
+            .tech-tag {
+                padding: 1px 7px;
+            }
+
+            /* Former sidebar blocks, now dark-on-white */
+            /* Degree and school certificate side by side */
+            .education-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 2rem;
+            }
+
+            .education-container .container-block-title {
+                grid-column: 1 / -1;
+            }
+
+            .education-container .item {
+                margin-bottom: 0;
+                break-inside: avoid;
+            }
+
+            .degree {
+                color: var(--primary);
+            }
+
+            .education-container .meta {
+                color: var(--secondary-dark);
+                margin: 0 0 2px;
+            }
+
+            .education-container .time,
+            .lang-desc {
+                color: var(--text-muted);
+            }
+
+            .education-container .achievement strong {
+                color: var(--primary);
+            }
+
+            .education-container .time {
+                margin-bottom: 3px;
+            }
+
+            .education-container .achievement,
+            .side-list li {
+                color: var(--text-main);
+                opacity: 1;
+                font-size: 1rem;
+            }
+
+            .skills-list {
+                gap: 4px 6px;
+            }
+
+            .skills-list li {
+                background: none;
+                border: 1px solid var(--border);
+                color: var(--text-main);
+                padding: 1px 7px;
+                font-size: 0.95rem;
+            }
+
+            .skills-list li.category {
+                border: none;
+                padding: 0;
+                margin-top: 4px;
+            }
+
+            .skills-list strong {
+                color: var(--secondary-dark);
+                margin: 0;
+            }
+
+            .side-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.2rem 1.5rem;
+            }
+
+            .side-list li {
+                margin: 0;
+            }
+
+            .side-list li i {
+                color: var(--secondary-dark);
+            }
+
+            .profile:hover {
+                transform: none;
             }
         }
     </style>
@@ -856,10 +924,11 @@
             <div class="profile-container">
                 <img class="profile" src="assets/images/profile.jpg" alt="Mohammad Nosairat Profile Photo">
                 <h1 class="name">Mohammad Nosairat</h1>
-                <h2 class="tagline">Senior Backend Engineer<br>Fintech Architect &amp; Product Technical Lead</h2>
+                <h2 class="tagline">Senior Backend Engineer<br>Product Technical Lead</h2>
                 <div class="location-badge">
-                    <i class="fas fa-map-marker-alt"></i> Damascus, Syria &middot; Remote
+                    <i class="fas fa-map-marker-alt"></i> Damascus, Syria (UTC+3)
                 </div>
+                <div class="availability">Open to senior backend &amp; architecture roles: remote, hybrid or on-site</div>
             </div><!--//profile-container-->
 
             <div class="contact-container container-block">
@@ -869,7 +938,7 @@
                             href="mailto:nosairat.ite@gmail.com">nosairat.ite@gmail.com</a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:+963935918611">+963 935 918 611</a></li>
                     <li><i class="fas fa-globe"></i><a href="https://nosairat.github.io/website/"
-                            target="_blank" rel="noopener">nosairat.website</a></li>
+                            target="_blank" rel="noopener">nosairat.github.io/website</a></li>
                     <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/mohammad-nosairat/"
                             target="_blank" rel="noopener">linkedin.com/in/mohammad-nosairat</a></li>
                     <!-- <li><i class="fab fa-github"></i><a href="https://github.com/nosairat" target="_blank" rel="noopener">github.com/nosairat</a></li> -->
@@ -893,9 +962,20 @@
                     <h4 class="meta">Damascus University &mdash; Faculty of IT</h4>
                     <div class="time">2013 &ndash; 2018</div>
                     <div class="achievement">
-                        &bull; Graduated First in Class (80.7 GPA)<br>
+                        &bull; GPA: 80.7% &mdash; <strong>ranked 1st in class</strong><br>
                         &bull; Specialized in Information Systems<br>
                         &bull; Returned as Teaching Assistant, 2019&ndash;2021
+                    </div>
+                </div><!--//item-->
+                <div class="item">
+                    <h3 class="degree">General Secondary Certificate</h3>
+                    <h4 class="meta">Scientific Branch &mdash; Syria</h4>
+                    <div class="time">2013</div>
+                    <div class="achievement">
+                        &bull; Overall: 97.83% (2837 / 2900)<br>
+                        &bull; Mathematics 600/600<br>
+                        &bull; Biology 300/300 &middot; English 299/300<br>
+                        &bull; Physics 393/400 &middot; Chemistry 198/200
                     </div>
                 </div><!--//item-->
             </div><!--//education-container-->
@@ -913,11 +993,12 @@
                     <li>Spring Cloud</li>
                     <li>Spring Security</li>
                     <li>Hibernate / JPA</li>
+                    <li>Spring Cache</li>
                     <li>OAuth2</li>
 
                     <li class="category"><strong>Architecture</strong></li>
                     <li>Microservices</li>
-                    <li>Event-Driven</li>
+                    <li>Event-Driven (Kafka)</li>
                     <li>REST API Design</li>
                     <li>Idempotency &amp; Reconciliation</li>
 
@@ -926,7 +1007,6 @@
                     <li>PostgreSQL</li>
                     <li>SQL Server</li>
                     <li>Redis</li>
-                    <li>Spring Cache</li>
 
                     <li class="category"><strong>Testing</strong></li>
                     <li>JUnit 5</li>
@@ -936,7 +1016,6 @@
                     <li class="category"><strong>Infrastructure</strong></li>
                     <li>Docker</li>
                     <li>Kubernetes</li>
-                    <li>Kafka</li>
                     <li>GitLab CI</li>
                     <li>Jenkins</li>
 
@@ -947,14 +1026,11 @@
                     <li class="category"><strong>Security</strong></li>
                     <li>PCI DSS</li>
                     <li>Tokenization</li>
-                    <li>AES-256</li>
                     <li>Key Management (HSM)</li>
                     <li>JCA Providers</li>
                     <li>RBAC &amp; Audit Trails</li>
 
-                    <li class="category"><strong>Practices &amp; AI Tooling</strong></li>
-                    <li>Code Review</li>
-                    <li>Mentoring</li>
+                    <li class="category"><strong>AI Tooling</strong></li>
                     <li>Claude Code</li>
                     <li>GitHub Copilot</li>
                     <li>Cursor</li>
@@ -994,15 +1070,15 @@
                         microservices.</p>
                     <p>My work centres on the parts of fintech where correctness is not negotiable: digital wallets and
                         stored value accounts, virtual card issuance, card-on-file payments, and cryptographic key
-                        management. I care about idempotent transaction flows that never double-spend, reconciliation
-                        that always balances, and code that the next engineer can safely change. Alongside delivery I
+                        management. I care about idempotent transaction flows that stay safe under retries, reconciliation
+                        that surfaces every mismatch, and code that the next engineer can safely change. Alongside delivery I
                         lead a product team and mentor engineers, drawing on two years of lecturing software engineering
                         at Damascus University.</p>
 
                     <div class="metrics">
                         <div class="metric">
-                            <span class="metric-value">8+</span>
-                            <span class="metric-label">Years in backend</span>
+                            <span class="metric-value">$10M+</span>
+                            <span class="metric-label">Processed annually</span>
                         </div>
                         <div class="metric">
                             <span class="metric-value">5+</span>
@@ -1019,33 +1095,6 @@
                     </div>
                 </div><!--//summary-->
             </section><!--//section-->
-
-            <section class="section competencies-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-layer-group"></i></span>Core
-                    Competencies</h2>
-                <div class="competencies">
-                    <div class="competency">
-                        <h3>Financial Systems Engineering</h3>
-                        <p>Stored value accounts, multi-currency ledgers, P2P transfers, top-up and cash-out flows,
-                            virtual card issuance, spend controls and automated reconciliation.</p>
-                    </div>
-                    <div class="competency">
-                        <h3>Distributed Architecture</h3>
-                        <p>Spring Boot microservices communicating over Kafka, containerised with Docker and orchestrated
-                            on Kubernetes; API contracts designed around real client needs.</p>
-                    </div>
-                    <div class="competency">
-                        <h3>Security &amp; Cryptography</h3>
-                        <p>PCI DSS-aligned card storage, end-to-end tokenization, AES-256 encryption at rest, custom Java
-                            Security Provider integration, key management via a soft HSM.</p>
-                    </div>
-                    <div class="competency">
-                        <h3>Technical Leadership</h3>
-                        <p>Product technical lead across multiple banking integrations: shaping designs, reviewing code,
-                            mentoring 10+ junior engineers and teaching architecture at university level.</p>
-                    </div>
-                </div>
-            </section><!--//competencies-section-->
 
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Professional
@@ -1065,23 +1114,32 @@
                     </div><!--//meta-->
                     <div class="details">
                         <p>Lead backend engineer for the financial technology products foo.mobi delivers to banks and
-                            fintech clients across Middle East markets. Technical owner of several products: I set the
-                            architecture, write the critical paths, define the integration contracts clients build
-                            against, and stay accountable for them in production.</p>
-                        <h4>Delivery &amp; architecture</h4>
+                            fintech clients across Middle East markets. Technical owner of five products now in
+                            production, together processing <strong>$10M+ annually</strong>: I set the architecture,
+                            write the critical paths, define the integration contracts clients build against, and stay
+                            accountable for them in production.</p>
+                        <h4>Products delivered</h4>
                         <ul>
-                            <li>Architected and implemented core financial systems &mdash; a Stored Value Account (SVA)
-                                platform, a Virtual Card Network (VCN), a Card-on-File payment platform and a digital
-                                channel layer for banks &mdash; as Spring Boot microservices on Docker.</li>
-                            <li>Built and launched a secure digital wallet platform now serving <strong>10,000+
-                                    registered users</strong>, covering multi-currency balances, P2P transfers, top-up
-                                and cash-out.</li>
-                            <li>Designed the transaction engine around idempotency and automated reconciliation, so
-                                retries and partial failures can never double-charge or leave balances out of step.</li>
-                            <li>Delivered a Security Vault (soft HSM) for banking secrets, including a custom Java
-                                Security Provider, AES-256 encryption at rest and white-box cryptography.</li>
-                            <li>Designed API contracts and dynamic channel implementations that let one platform serve
-                                many banks, each with its own data sources and integration constraints.</li>
+                            <li><strong>Digital Wallet (Stored Value Account)</strong> &mdash; lead architect of a
+                                multi-currency wallet serving <strong>10,000+ registered users</strong> with P2P
+                                transfers, top-up and cash-out. Built the transaction engine around idempotency and
+                                automated reconciliation, so retries and partial failures do not double-charge or leave
+                                balances out of step, with real-time fraud detection in the authorisation path.</li>
+                            <li><strong>Virtual Card Network</strong> &mdash; virtual card issuance from provisioning
+                                through spend authorisation, with end-to-end tokenization and per-card spend controls
+                                (limits, scopes and usage rules).</li>
+                            <li><strong>Card-on-File Payment Platform</strong> &mdash; product technical lead for
+                                repeat merchant payments from stored cards: PCI DSS-compliant card storage,
+                                tokenization across storage and authorisation, and a hosted checkout that keeps
+                                merchants out of PCI scope.</li>
+                            <li><strong>Security Vault (soft HSM)</strong> &mdash; product technical lead for a key
+                                management and cryptographic operations service protecting banking secrets where a
+                                hardware HSM was not an option: custom Java Security Provider (JCA), AES-256 encryption
+                                at rest and white-box cryptography techniques for keys in use.</li>
+                            <li><strong>Digital Channel Platform</strong> &mdash; lead architect of a single
+                                integration surface for banks over many backend systems: API contracts designed around
+                                frontend needs, with pluggable per-client implementations for heterogeneous data
+                                sources.</li>
                         </ul>
                         <h4>Performance, reliability &amp; leadership</h4>
                         <ul>
@@ -1105,6 +1163,7 @@
                             <span class="tech-tag">Kubernetes</span>
                             <span class="tech-tag">Microservices</span>
                             <span class="tech-tag">OAuth2</span>
+                            <span class="tech-tag">JCA</span>
                             <span class="tech-tag">PCI DSS</span>
                         </div>
                     </div><!--//details-->
@@ -1193,139 +1252,8 @@
 
             </section><!--//section-->
 
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-code-branch"></i></span>Key
-                    Projects</h2>
-
-                <div class="projects-wrapper">
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-building-columns"></i></div>
-                        <h3 class="project-title">Digital Channel Platform</h3>
-                        <span class="project-role">Lead Architect</span>
-                        <div class="details">
-                            <p>Secure digital channel platform giving banks and financial institutions a single
-                                integration surface over many backend systems.</p>
-                            <ul>
-                                <li>Designed API contracts around real frontend requirements rather than internal data
-                                    shapes</li>
-                                <li>Supported multiple pluggable implementations for channel data retrieval per client
-                                </li>
-                                <li>Integrated diverse clients and heterogeneous data sources behind one contract</li>
-                            </ul>
-                        </div>
-                        <div class="technologies">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">REST</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-wallet"></i></div>
-                        <h3 class="project-title">Digital Wallet Platform (SVA)</h3>
-                        <span class="project-role">Lead Architect &amp; Senior Developer</span>
-                        <div class="details">
-                            <p>Stored Value Account wallet supporting multiple currencies and the full operation set
-                                &mdash; P2P transfer, top-up, cash-out &mdash; for 10K+ users.</p>
-                            <ul>
-                                <li>Implemented an idempotent transaction processing engine safe under retries</li>
-                                <li>Integrated real-time fraud detection into the authorisation path</li>
-                                <li>Built an automated reconciliation system to keep ledgers provably balanced</li>
-                            </ul>
-                        </div>
-                        <div class="technologies">
-                            <span class="tech-tag">Java 21</span>
-                            <span class="tech-tag">Spring Boot 3</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Kafka</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon"><i class="far fa-credit-card"></i></div>
-                        <h3 class="project-title">Virtual Card Network (VCN)</h3>
-                        <span class="project-role">Senior Developer</span>
-                        <div class="details">
-                            <p>Card issuance system for virtual payment cards, from provisioning through spend
-                                authorisation.</p>
-                            <ul>
-                                <li>End-to-end card tokenization so raw card data never leaves the secure boundary</li>
-                                <li>Complex spend control logic (limits, scopes and usage rules) per card</li>
-                            </ul>
-                        </div>
-                        <div class="technologies">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">Tokenization</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-cart-shopping"></i></div>
-                        <h3 class="project-title">Payment Platform (Card on File)</h3>
-                        <span class="project-role">Product Technical Lead &amp; Senior Developer</span>
-                        <div class="details">
-                            <p>Card-on-File system enabling merchants to accept repeat payments from securely stored
-                                cards.</p>
-                            <ul>
-                                <li>Stored card credentials in compliance with PCI DSS</li>
-                                <li>End-to-end card tokenization across storage and authorisation</li>
-                                <li>Implemented a hosted checkout solution so merchants stay out of PCI scope</li>
-                            </ul>
-                        </div>
-                        <div class="technologies">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Security</span>
-                            <span class="tech-tag">PCI DSS</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-key"></i></div>
-                        <h3 class="project-title">Security Vault (Soft HSM)</h3>
-                        <span class="project-role">Product Technical Lead &amp; Senior Engineer</span>
-                        <div class="details">
-                            <p>Key management and cryptographic operation service protecting banking secrets in
-                                software, where a hardware HSM was not an option.</p>
-                            <ul>
-                                <li>Implemented a custom Java Security Provider (JCA) integration</li>
-                                <li>AES-256 encryption at rest for all managed key material</li>
-                                <li>Applied white-box cryptography techniques to protect keys in use</li>
-                            </ul>
-                        </div>
-                        <div class="technologies">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">JCA</span>
-                            <span class="tech-tag">AES-256</span>
-                            <span class="tech-tag">Key Management</span>
-                        </div>
-                    </div>
-
-                    <!-- Note: 5 cards fill the grid evenly at 2 columns in print. If you add a
-                         6th, keep descriptions to ~2 lines so the print layout stays at 5 pages. -->
-                </div>
-            </section>
-
-            <section class="section achievements-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-trophy"></i></span>Key
-                    Achievements</h2>
-                <ul class="achievements-list">
-                    <li><i class="fas fa-award"></i>Graduated <strong>first in class</strong> in Software Engineering at
-                        Damascus University (top 1%), and was invited back to teach.</li>
-                    <li><i class="fas fa-rocket"></i>Delivered <strong>5+ financial systems</strong> into production
-                        &mdash; wallet, card network, card-on-file payments, digital channel and security vault &mdash;
-                        together processing <strong>$10M+ annually</strong>.</li>
-                    <li><i class="fas fa-gauge-high"></i>Reduced transaction processing latency by <strong>40%</strong>
-                        through targeted performance optimisation.</li>
-                    <li><i class="fas fa-user-shield"></i>Took products through bank security reviews with PCI
-                        DSS-aligned card handling, tokenization and a purpose-built key management service.</li>
-                    <li><i class="fas fa-users"></i>Grew engineers: mentored <strong>5 junior developers</strong> into
-                        independent service owners and supervised <strong>15+ university projects</strong>.</li>
-                </ul>
-            </section><!--//achievements-section-->
-
             <footer class="cv-footer">
-                <span>Last updated August 2026 &middot; Open to senior backend &amp; architecture roles (remote)</span>
+                <span>Last updated November 2026</span>
                 <button class="btn-print no-print" onclick="window.print()">
                     <i class="fas fa-file-arrow-down"></i> Save as PDF
                 </button>
